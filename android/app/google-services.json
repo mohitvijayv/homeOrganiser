@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "436563077175",
+    "firebase_url": "https://testdb-82dd6.firebaseio.com",
+    "project_id": "testdb-82dd6",
+    "storage_bucket": "testdb-82dd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436563077175:android:5a056cac7de100a8f0b7b2",
+        "android_client_info": {
+          "package_name": "com.example.homeorganiser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436563077175-ttugmfni69s8pfr4sh6skqep93ep8phg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf8qkaN8xu-4cLrVj1vc32gYMEPut6RK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436563077175-ttugmfni69s8pfr4sh6skqep93ep8phg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
