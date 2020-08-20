@@ -43,6 +43,7 @@ class _MyhomeAppState extends State<MyhomeApp> {
   final myController_name = TextEditingController();
   final myController_location = TextEditingController();
   final myController_query = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -116,30 +117,39 @@ class _MyhomeAppState extends State<MyhomeApp> {
       builder: (context)=>AlertDialog(
         title: Text("Exit?"),
         actions: <Widget>[
-          FlatButton(
-            child:Text("NO"),
-            onPressed: ()=>Navigator.pop(context, false),
+          ButtonTheme(
+            minWidth: 100,
+            height: 200,
+            child: FlatButton(
+              
+              child:Text("NO"),
+              onPressed: ()=>Navigator.pop(context, false),
+            ),
           )
         ],
       )
     );
   }
+
+  void viewRecord(String query) async{
+    var ref = await Firestore.instance.collection("Objects").where("location", isEqualTo: query).orderBy('name').getDocuments();
+    ref.documents.forEach((i) {
+      print(i.data);
+    });
+  }
+
+
+  void createRecord(String name, String location) async {
+
+    DocumentReference ref = await Firestore.instance.collection("Objects")
+        .add({
+      "name":name,
+      "location":location
+    });
+    print(ref.documentID);
+  }
+
+
+
 }
 
-void viewRecord(String query) async{
-  var ref = await Firestore.instance.collection("Objects").where("location", isEqualTo: query).orderBy('name').getDocuments();
-  ref.documents.forEach((i) {
-    print(i.data);
-  });
-}
-
-
-void createRecord(String name, String location) async {
-
-  DocumentReference ref = await Firestore.instance.collection("Objects")
-      .add({
-    "name":name,
-    "location":location
-  });
-  print(ref.documentID);
-}
